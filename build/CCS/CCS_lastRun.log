@@ -1,0 +1,11 @@
+2014-12-16 11:30:04,792 - DEBUG - clue_parser - ClueParser instance initialised.
+2014-12-16 11:30:19,309 - INFO - clue_parser - Parsing clue: 
+2014-12-16 11:30:19,311 - DEBUG - clue_parser - Converted clue to Clue object:  (4) <typ=None, letters=????>
+2014-12-16 11:30:19,311 - INFO - clue_parser - Unsuccessful in resolving clue.
+2014-12-16 11:30:22,617 - INFO - clue_parser - Parsing clue: 
+2014-12-16 11:30:22,618 - DEBUG - clue_parser - Converted clue to Clue object:  (4) <typ=None, letters=????>2014-12-16 11:30:38,300 - DEBUG - wordplay - Double definition solutions found: []
+4-12-16 11:30:25,316 - INFO - clue_parser - Parsing clue: 
+2014-12-16 11:30:25,316 - DEBUG - clue_parser - Converted clue to Clue object:  (4) <typ=None, letters=????>
+2014-12-16 11:30:25,881 - INFO - clue_parser - 5337 solution(s) found. Best solution is 'cold' (certainty: 0.000000)
+2014-12-16 11:30:35,101 - INFO - clue_parser - Parsing clue: Hello, world!
+2014-12-16 11:30:35,101 - DEBUG - clue_parser - Converted clue to Clue object: Hello, world! (4) <typ=None, letters=????>
