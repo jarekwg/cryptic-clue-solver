@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmCCS</class>
+ <widget class="QMainWindow" name="frmCCS">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>849</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Cryptic Clue Solver</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_7">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QWidget" name="widget_4" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>55</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Enter the cryptic clue here.
+A word length can also be appended onto the end of the
+ clue in brackets  (eg. &quot;Exuviate garage. (4)&quot;), though
+ the slider should be preferred.
+This field can optionally be left blank when brute-forcing
+ solutions.</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>11</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="lblClueEntry">
+           <property name="text">
+            <string>Enter clue here:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="txtClueEntry"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnParseClue">
+           <property name="text">
+            <string>Search</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnCancel">
+           <property name="text">
+            <string>Cancel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnDebug">
+           <property name="text">
+            <string>Debug</string>
+           </property>
+           <property name="shortcut">
+            <string>Ctrl+D</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_5" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QListWidget" name="lstSolns">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_2" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>400</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="margin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QGroupBox" name="gpbWordLength">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>Check this box to provide a word length.
+The word length may also instead be provided
+ alongside the clue itself. (eg. &quot;Exuviate garage. (4)&quot;)
+Note that providing a word length is highly
+ recommended as it will often greatly reduce
+ the solution computation time.</string>
+              </property>
+              <property name="title">
+               <string>Word Length</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <property name="leftMargin">
+                <number>11</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>11</number>
+               </property>
+               <property name="bottomMargin">
+                <number>6</number>
+               </property>
+               <item>
+                <widget class="QSlider" name="slrWordLength">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="minimum">
+                  <number>3</number>
+                 </property>
+                 <property name="maximum">
+                  <number>15</number>
+                 </property>
+                 <property name="sliderPosition">
+                  <number>4</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="lblWordLength">
+                 <property name="minimumSize">
+                  <size>
+                   <width>15</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>15</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>4</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="gpbKnownLetters">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>Enter any known letters here, using question marks ('?')
+ as placeholders.
+Providing known letters will speed up computation time\
+ and often narrow down the solution pool considerably.
+
+Checking the Brute-force box will generate all possible
+ words that match the given pattern and compute their
+ likelihood of being a solution based on how closely they
+ match the definition part only. 
+Brute-forced solutions are always displayed after all
+ normally-obtained solutions, and those with similarity
+ scores of zero are still included.</string>
+              </property>
+              <property name="title">
+               <string>Known Letters</string>
+              </property>
+              <property name="checkable">
+               <bool>false</bool>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <item>
+                <widget class="QLineEdit" name="txtKnownLetters"/>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="chkBruteForce">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>Brute-force Solutions</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="gpbWordplayType">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>Select a particular wordplay type to narrow down the
+ search pool and often greatly reduce computation time.
+Only solutions that use the selected wordplay will be
+ displayed.</string>
+              </property>
+              <property name="title">
+               <string>Wordplay Type</string>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <item>
+                <widget class="QWidget" name="widget_3" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_2">
+                  <item>
+                   <widget class="QRadioButton" name="rdbWp1Any">
+                    <property name="text">
+                     <string>Any</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                    <attribute name="buttonGroup">
+                     <string notr="true">grpWordplayTypes</string>
+                    </attribute>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QRadioButton" name="radioButton_2">
+                    <property name="text">
+                     <string>Anagram</string>
+                    </property>
+                    <attribute name="buttonGroup">
+                     <string notr="true">grpWordplayTypes</string>
+                    </attribute>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QRadioButton" name="radioButton_3">
+                    <property name="text">
+                     <string>Run</string>
+                    </property>
+                    <attribute name="buttonGroup">
+                     <string notr="true">grpWordplayTypes</string>
+                    </attribute>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QRadioButton" name="radioButton_4">
+                    <property name="text">
+                     <string>Double Definition</string>
+                    </property>
+                    <attribute name="buttonGroup">
+                     <string notr="true">grpWordplayTypes</string>
+                    </attribute>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="widget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout">
+                  <item>
+                   <widget class="QRadioButton" name="radioButton_5">
+                    <property name="text">
+                     <string>Charade</string>
+                    </property>
+                    <attribute name="buttonGroup">
+                     <string notr="true">grpWordplayTypes</string>
+                    </attribute>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QRadioButton" name="radioButton">
+                    <property name="text">
+                     <string>Initial</string>
+                    </property>
+                    <attribute name="buttonGroup">
+                     <string notr="true">grpWordplayTypes</string>
+                    </attribute>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QRadioButton" name="radioButton_11">
+                    <property name="text">
+                     <string>Final</string>
+                    </property>
+                    <attribute name="buttonGroup">
+                     <string notr="true">grpWordplayTypes</string>
+                    </attribute>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupBox">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>Increase this value to force the synonym finder to
+ search deeper and return more synonyms.
+This may occasionally be useful, however it comes
+ with significantly increased computation time.</string>
+              </property>
+              <property name="title">
+               <string>Synonym Search Depth</string>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <item>
+                <widget class="QSlider" name="slrSynSearchDepth">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="minimum">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <number>5</number>
+                 </property>
+                 <property name="sliderPosition">
+                  <number>1</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="lblWordLength_2">
+                 <property name="minimumSize">
+                  <size>
+                   <width>15</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>15</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <tabstops>
+  <tabstop>txtClueEntry</tabstop>
+  <tabstop>btnParseClue</tabstop>
+  <tabstop>btnDebug</tabstop>
+  <tabstop>lstSolns</tabstop>
+  <tabstop>gpbWordLength</tabstop>
+  <tabstop>slrWordLength</tabstop>
+  <tabstop>txtKnownLetters</tabstop>
+  <tabstop>slrSynSearchDepth</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>txtClueEntry</sender>
+   <signal>returnPressed()</signal>
+   <receiver>btnParseClue</receiver>
+   <slot>animateClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>719</x>
+     <y>45</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>slrWordLength</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>lblWordLength</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>448</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>796</x>
+     <y>131</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>slrSynSearchDepth</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>lblWordLength_2</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>576</x>
+     <y>437</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>796</x>
+     <y>438</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtKnownLetters</sender>
+   <signal>returnPressed()</signal>
+   <receiver>btnParseClue</receiver>
+   <slot>animateClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>796</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>719</x>
+     <y>45</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <buttongroups>
+  <buttongroup name="grpWordplayTypes"/>
+ </buttongroups>
+</ui>

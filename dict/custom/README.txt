@@ -1,0 +1,2 @@
+These *.dic files are binary representations of python objects and should not be changed here directly.
+If removed, CCS will recompile them automatically from the wordlist.dic file in the folder above.
